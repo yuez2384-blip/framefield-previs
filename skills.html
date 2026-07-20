@@ -33,3 +33,5 @@ function renderHistory(){let s=skills.find(x=>x.id===current);$('history').inner
 $('add').onclick=()=>{let s={id:'skill-'+Date.now(),name:'新技能',description:'',endpoint:'',method:'POST',prompt:'',inputs:'input',output:'JSON',version:'v1.0.0',enabled:true,history:[]};skills.unshift(s);current=s.id;save();load()};$('save').onclick=save;$('saveTop').onclick=save;$('duplicate').onclick=()=>{let s={...read(),id:'skill-'+Date.now(),name:read().name+'（副本）',history:[]};skills.unshift(s);current=s.id;save();load()};$('test').onclick=()=>{$('testResult').textContent=$('endpoint').value?'已生成请求预览。接入真实接口后，这里会发送 HTTP 请求。':'请先填写 HTTP 地址。'};fields.forEach(k=>$(k).addEventListener('input',preview));load();
 </script>
 </body></html>
+
+
